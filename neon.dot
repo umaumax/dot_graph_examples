@@ -1,0 +1,17 @@
+digraph structs {
+    // NOTE: box example 1
+    node [shape=record];
+    lane_a [label="|||||||", xlabel="lane_a"];
+    lane_b [label="|||||||", xlabel="lane_b"];
+    lane_c [label="|||||||", xlabel="lane_c"];
+
+    op_abc [style="rounded,filled", shape=diamond, label="+"];
+
+    lane_a -> op_abc;
+    lane_b -> op_abc;
+    op_abc -> lane_c;
+
+    // NOTE: 直感とx,yの方向が合わない
+    // NOTE: 全体をさらに{}でくくると，文字幅によって，ずれてしまう
+    grid [label="{|l||||||||||||||}|{u||d|||||||||||||}|{|r||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}|{|||||||||||||||}"];
+}
