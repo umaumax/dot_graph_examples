@@ -1,6 +1,6 @@
 digraph graph_name {
   graph [
-    charset = "UTF-8";
+    charset = "UTF-8",
     label = "function call graph",
     labelloc = "t",
     fontcolor = black,
@@ -9,11 +9,11 @@ digraph graph_name {
     // NOTE: vertical space
     ranksep = 1.0,
     // NOTE: horizontal space
-    nodesep = 2.0
+    nodesep = 2.0,
   ];
 
   node [
-    colorscheme = "rdylgn11"
+    colorscheme = "rdylgn11",
     style = "solid,filled",
     fontsize = 16,
     fontcolor = black,
@@ -29,7 +29,7 @@ digraph graph_name {
     color = black,
     labelfloat = true,
     labeldistance = 2.5,
-    labelangle = 70
+    labelangle = 70,
   ];
 
   // NOTE: node definition
