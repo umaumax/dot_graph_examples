@@ -9,16 +9,16 @@ digraph graph_name {
     // NOTE: vertical space
     ranksep = 1.0,
     // NOTE: horizontal space
-    nodesep = 1.5
+    nodesep = 2.0
   ];
 
   node [
     colorscheme = "rdylgn11"
     style = "solid,filled",
     fontsize = 16,
-    fontcolor = white,
+    fontcolor = black,
     color = black,
-    fillcolor = "#555555",
+    fillcolor = "#A0FFA0",
     fixedsize = false,
   ];
 
@@ -34,18 +34,22 @@ digraph graph_name {
 
   // NOTE: node definition
   root_func [shape = box];
-  grid_func [shape = box];
-  func_1 [shape = box];
-  func_2 [shape = box];
-  func_2_horizontal [shape = box];
-  func_2_vertical [shape = box];
-  func_3 [shape = box];
+  grid_func [shape = box, label="grid_func\n(10ms+30ms*3+30ms)"];
+  func_1 [shape = box, label="func_1\n(10ms)"];
+  func_2 [shape = box, label="func_2\n(20ms)"];
+  func_2_horizontal [shape = box, label="func_2_horizontal\n(5ms)"];
+  func_2_vertical [shape = box, label="func_2_vertical\n(15ms)"];
+  func_3 [shape = box, label="func_3\n(30ms)", fillcolor="#FFA0A0"];
 
   // NOTE: edge definition
   root_func -> grid_func [label = "grid size(48x48), grid num(23x23)", arrowhead = normal];
-  grid_func -> func_1 [label = "x1"];
-  grid_func -> func_2 [label = "x3"];
+  grid_func -> func_1 [label = "x1 per grid"];
+  grid_func -> func_2 [label = "x3 per grid"];
   func_2 -> func_2_horizontal [label = "horizontal access"];
   func_2 -> func_2_vertical [label = "vertical access"];
-  grid_func -> func_3 [label = "x1"];
+  grid_func -> func_3 [label = "x1 per grid [bottleneck]", color="#B81324", fontcolor="#B81324", penwidth=3.0];
+
+  // NOTE: comment
+  // #FBDB0C: gummiyellow
+  comment [shape = note, label="() means total processing time\n(entire grids)", fillcolor="#FBDB0C", fontcolor=black, pos = "1,2!"];
 }
